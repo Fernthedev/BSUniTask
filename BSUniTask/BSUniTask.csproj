@@ -1,0 +1,78 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>netstandard2.0;net48</TargetFrameworks>
+        <AssemblyName>UniTask</AssemblyName>
+        <LangVersion>8.0</LangVersion>
+        <RootNamespace>Cysharp.Threading.Tasks</RootNamespace>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <NoWarn>$(NoWarn);CS1591</NoWarn>
+
+        <!-- NuGet Packaging -->
+        <Id>UniTask</Id>
+        <PackageVersion>$(Version)</PackageVersion>
+        <Company>Cysharp</Company>
+        <Authors>Cysharp</Authors>
+        <Copyright>© Cysharp, Inc.</Copyright>
+        <PackageTags>task;async</PackageTags>
+        <Description>Provides an efficient async/await integration to Unity and .NET Core.</Description>
+        <PackageProjectUrl>https://github.com/Cysharp/UniTask</PackageProjectUrl>
+        <RepositoryUrl>$(PackageProjectUrl)</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageIcon>Icon.png</PackageIcon>
+        <AssemblyOriginatorKeyFile>opensource.snk</AssemblyOriginatorKeyFile>
+        <IsPackable>true</IsPackable>
+
+        <!--We gotta define this ourselves for Beat Saber-->
+        <DefineConstants>
+            ;UNITY_2017_2_OR_NEWER;
+            
+            ;UNITY_2018_3_OR_NEWER;
+            
+            ;UNITY_2019_1_OR_NEWER;
+            ;UNITY_2019_2_OR_NEWER;
+            ;UNITY_2019_3_OR_NEWER;
+            ;UNITY_2019_4_OR_NEWER;
+            
+            ;UNITY_2020_2_OR_NEWER;
+        </DefineConstants>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <DebugSymbols>true</DebugSymbols>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Reference Include="UnityEngine">
+            <HintPath>$(BeatSaberDir)\Beat Saber_Data\Managed\UnityEngine.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.CoreModule">
+            <HintPath>$(BeatSaberDir)\Beat Saber_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="Icon.png" Pack="true" PackagePath="/" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="BSUniTask.csproj.user" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Include="..\UniTask\src\UniTask\Assets\Plugins\UniTask\Runtime\**\*.cs" Exclude="&#xD;&#xA;..\UniTask\src\UniTask\Assets\Plugins\UniTask\Editor\*.cs;&#xD;&#xA;" />
+        <Compile Remove="..\UniTask\src\UniTask\Assets\Plugins\UniTask\Runtime\_InternalVisibleTo.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.4" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="BSUniTask.csproj.user" />
+    </ItemGroup>
+
+</Project>

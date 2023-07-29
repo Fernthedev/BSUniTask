@@ -1,0 +1,12 @@
+{
+  "$schema": "https://raw.githubusercontent.com/bsmg/BSIPA-MetadataFileSchema/master/Schema.json",
+  "id": "BSUniTask",
+  "name": "BSUniTask",
+  "author": "CySharp",
+  "version": "0.0.1",
+  "description": "Plugin wrapper for UniTask",
+  "gameVersion": "1.31.0",
+  "dependsOn": {
+    "BSIPA": "^4.2.0"
+  }
+}
