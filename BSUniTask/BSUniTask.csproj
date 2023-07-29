@@ -1,7 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFrameworks>netstandard2.0;net48</TargetFrameworks>
         <AssemblyName>UniTask</AssemblyName>
         <LangVersion>8.0</LangVersion>
         <RootNamespace>Cysharp.Threading.Tasks</RootNamespace>
@@ -37,6 +36,7 @@
             
             ;UNITY_2020_2_OR_NEWER;
         </DefineConstants>
+        <TargetFramework>netstandard2.0</TargetFramework>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
